@@ -1,13 +1,14 @@
-function fileSegeration(file) {
-  const files = [];
-  console.log(files);
-  const groupedProducts = products.reduce((acc, item) => {
-    if (!acc[item.category]) {
-      acc[item.category] = [];
+function fileSegeration(files) {
+  const groupedFiles = files.reduce((acc, file) => {
+    const extension = file.split(".").pop(); // Extract the file extension
+    if (!acc[extension]) {
+      acc[extension] = []; // Initialize array for this extension if not present
     }
-    acc[item.category].push(item);
+    acc[extension].push(file); // Add the file to the corresponding extension group
     return acc;
   }, {});
+
+  console.log(groupedFiles);
 }
 
 const files = [
